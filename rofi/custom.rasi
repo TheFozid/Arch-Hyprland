@@ -1,0 +1,159 @@
+/*
+ * ROFI color theme
+ *
+ * Based on Base16 Material Color Scheme (https://github.com/ntpeters/base16-materialtheme-scheme)
+ *
+ * Modified by: Dave Davenport
+ * User: Tomaszal
+ * Copyright: Tomas Zaluckij
+ */
+
+* {
+	base00: #263238;
+
+
+	/*base0D: #00BCD4;*/
+
+	spacing: 0;
+	background-color: transparent;
+	font: "Dejavu Sans Font 8";
+
+}
+
+/*****----- Main Window -----*****/
+window {
+	transparency: "real";
+	background-color: #262626FC; /*base00 + CC (80% opacity)*/
+    location:                    northwest;
+    anchor:                      northwest;
+    fullscreen:                  false;
+    width:                       500px;
+    height:                      750px;
+    x-offset:                    5px;
+    y-offset:                    5px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      1px solid;
+    border-radius:               4px;
+    cursor:                      "default";
+}
+
+mainbox {
+	children: [inputbar, message, mode-switcher, listview];
+	enabled:                     true;
+	spacing: 5px;
+	padding: 5px 0;
+	margin:                      0px;
+	border: 1px;
+	    border-radius:               4px;
+/*	background-color:            transparent; */
+	border-color: #ffffff;
+}
+
+inputbar {
+    enabled:                     true;
+    spacing:                     2px;
+    padding:                     2px;
+    border:                      2px;
+    border-radius:               100%;
+    background-color:            transparent;
+	children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+	text-color: #eeeeee;
+    enabled:                     true;
+    padding:                     1px;
+    border-radius:               100%;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    	expand: false;
+	str: " → ";
+	margin: 3 1ch 0 0;
+	border-radius:               100%;
+	text-color: #eeeeee;
+}
+
+entry {
+	text-color: #eeeeee;
+}
+
+case-indicator {
+	text-color: #eeeeee;
+}
+
+mode-switcher, message {
+	border: 1px 0;
+	border-color: #eeeeee;
+}
+
+button, textbox {
+	background-color: #808080;
+	text-color: #eeeeee;
+	padding: 1px;
+}
+
+button selected {
+	background-color: #3e3e3e;
+}
+
+listview {
+    enabled:                     true;
+    columns:                     3;
+    lines:                       1;
+    cycle:                       true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    
+    spacing:                     10px;
+    background-color:            transparent;
+    cursor:                      "default";
+	margin: 0 5px 0 10px;
+}
+
+scrollbar {
+	background-color: #eeeeee;
+	handle-color: #eeeeee;
+	handle-width: 5px;
+	border: 0 1px;
+	border-color: #eeeeee;
+	margin: 0 0 0 10px;
+}
+
+element {
+	padding: 2px;
+  spacing: 2px;
+	highlight: bold underline;
+	children: [element-icon, element-text];
+}
+element-text, element-icon {
+	background-color : inherit;
+	text-color	     : inherit;
+	foreground-color : inherit;
+}
+
+element normal {
+	background-color: transparent;
+}
+
+element selected {
+	background-color: #808080;
+}
+
+element alternate {
+	/*background-color: @base03;*/
+}
+
+element normal normal, element selected normal, element alternate normal {
+	text-color: #eeeeee;
+}
+
+element normal urgent, element selected urgent, element alternate urgent {
+	text-color: #eeeeee;
+}
+
+element normal active, element selected active, element alternate active {
+	text-color: #eeeeee;
+}
