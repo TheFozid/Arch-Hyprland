@@ -1,0 +1,124 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 14, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 2, // Gaps between modules (4px)
+    "reload_style_on_change": true,
+    "border-radius": 0,
+    // Choose the order of the modules
+    "modules-left": [
+    	"custom/uptime",
+    	"custom/R",
+    	"custom/D",
+    	"custom/S",	
+    	"custom/W",
+        "memory",
+        "custom/cpufreq",
+        "cpu",
+        "temperature",
+        "custom/temperature",
+        "network"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "pulseaudio",
+        "clock",
+        "custom/power"
+    ],
+    // Modules configuration
+
+    "custom/R": {
+        "format" : "|  /:{} ",
+        "interval": 10, 
+        "exec" : "df -h --output=used / | tail -1 | tr -d '\n'; echo ' of' | tr -d '\n'; df -h --output=size / | tail -1 | tr -d ''",
+        "on-click-right": "rofi -show drun"
+		},
+    "custom/S": {
+        "format" : "|  S:{} ",
+        "interval": 10, 
+        "exec" : "df -h --output=used /home/danny/Seagate | tail -1 | tr -d '\n'; echo ' of' | tr -d '\n'; df -h --output=size /home/danny/Seagate | tail -1 | tr -d ''",
+        "on-click-right": "rofi -show drun"
+		},
+    "custom/D": {
+        "format" : "|  D:{} ",
+        "interval": 10, 
+        "exec" : "df -h --output=used /home/danny/D | tail -1 | tr -d '\n'; echo ' of' | tr -d '\n'; df -h --output=size /home/danny/D | tail -1 | tr -d ''",
+        "on-click-right": "rofi -show drun"
+		},
+    "custom/W": {
+        "format" : "|  W:{} ",
+        "interval": 10, 
+        "exec" : "df -h --output=used /home/danny/Windows | tail -1 | tr -d '\n'; echo ' of' | tr -d '\n'; df -h --output=size /home/danny/Windows | tail -1 | tr -d ''",
+        "on-click-right": "rofi -show drun"
+		},
+    "custom/uptime": {
+        "format" : " archlinux | {} ",
+        "interval": 1,        
+        "exec" : "sh ~/scripts/uptime.sh",
+        "on-click-right": "rofi -show drun"
+		},
+    "custom/cpufreq": {
+        "format" : "| CPU frequency {}",
+        "interval": 1,
+        "exec" : "sh ~/scripts/cpufreq.sh",
+        "on-click-right": "rofi -show drun"
+		},
+    "custom/temperature": {
+        "interval": 1,
+        "exec": "awk '{print int($1)/1000}' /sys/devices/pci0000:00/0000:00:03.1/0000:29:00.0/hwmon/hwmon1/temp1_input",
+        "on-click-right": "rofi -show drun",
+        "format": "| GPU {}°C"
+    },
+		
+
+    "tray": {
+        "icon-size": 12,
+        "on-click-right": "rofi -show drun",
+        "spacing": 2
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "interval": 1,
+        "format": "| {:%H:%M:%S | %A %d/%m/%Y | }",
+        "on-click": "gsimplecal -t"
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "| CPU load {usage}%",
+        "on-click-right": "rofi -show drun",
+        "tooltip": false
+    },
+    "memory": {
+        "interval": 1,
+        "on-click-right": "rofi -show drun",
+        "format": "| RAM {}%"
+    },
+    "temperature": {
+        "interval": 1,
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
+        "on-click-right": "rofi -show drun",
+        "format": "| CPU {temperatureC}°C"
+//        "hwmon-path": "/sys/devices/pci0000:00/0000:00:03.1/0000:29:00.0/hwmon/hwmon1/temp1_input",
+//        "format": "| GPU {temperatureC}°C"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "interval": 1,
+        "on-click-right": "rofi -show drun",
+        "format-ethernet": "| {ipaddr} • {bandwidthUpBits}↑ • {bandwidthDownBits}↓ |"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "| 🔊{volume}%",
+        "on-click-right": "rofi -show drun",
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format" : "⏻ ",
+		"on-click": "wlogout"
+		}
+    }
+}
