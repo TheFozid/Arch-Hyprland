@@ -39,38 +39,116 @@
 
 /* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
-    border-top: 0;
-    padding-bottom: 0;
-    padding-left: 0px;
-    padding-right: 0px;
 }
 
 /* The whole bar */
 #waybar {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.0);
     color: white;
     font-family: Dejavu Sans;
     font-size: 10px;
 }
 
-/* Each module 
-#battery,
-#clock,
-#cpu,
-#custom-keyboard-layout,
-#memory,
-#mode,
-#network,
-#pulseaudio,
-#temperature,
+tooltip {
+    background: rgba(43, 48, 59, 0.95);
+    border: 1px solid rgba(100, 114, 125, 0.95);
+    border-radius: 10px;
+    min-height: 0px;
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+tooltip label {
+    color: white;
+}
+
+/* Each module */
+label.module,
 #tray {
-    padding-left: 1px;
-    padding-right: 1px; 
-} */
-
-
+    background: rgba(50, 50, 50, 0.5);
+    color: white;
+    font-family: Dejavu Sans;
+    font-size: 10px; 
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 10px;
+    min-height: 0px;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+} 
+#pulseaudio {
+    background: rgba(50, 50, 50, 0.5);
+    color: white;
+    font-family: Dejavu Sans;
+    font-size: 10px; 
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 12px;
+    min-height: 0px;
+    margin-top: -3px;
+    margin-bottom: -4px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 1px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+#workspaces {
+    background: rgba(50, 50, 50, 0.5);
+    color: white;
+    font-family: Dejavu Sans;
+    font-size: 8px; 
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 16px;
+    min-height: 0px;
+    margin-top: -6px;
+    margin-bottom: -6px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+#workspaces button.visible {
+    background: rgba(50, 50, 50, 0.6);
+    color: white;
+    font-family: Dejavu Sans;
+    font-size: 8px; 
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 100px;
+    min-height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#custom-weather {
+    background: rgba(50, 50, 50, 0.5);
+    color: white;
+    font-family: Dejavu Sans;
+    font-size: 10px; 
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 12px;
+    min-height: 0px;
+    margin-top: -4px;
+    margin-bottom: -3px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
